@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extra Questions</title>
+    <script src="jquery-3.5.1.js"></script>
+</head>
+<body>
+        <div class="wrap_qstn">
+            <label><input type="checkbox" class="box_qstn" value=gender><span> Gender </span></label><br>
+            <label><input type="checkbox" class="box_qstn" value=size><span> Shirt/T-Shirt Size </span></label><br>
+            <label><input type="checkbox" class="box_qstn" value=food><span> Food Preference </span></label>
+        </div>        
+        <div class="apd"></div>
+        <button id="btn">Add Question</button>
+
+</body>
+<script>
+    var i=1;
+    var html_form='';
+
+    $(document).ready(function(){
+        html_form+='<label>Question' + i + '<input type="text" class="box_qstn"></label><br>'
+        $("#btn").click(function(){
+            $(".apd").append('<div class="q' + i + '"><label>Question' + i + '<input type="text" class="box_qstn"></label><button id="x' + i + '"">X</button><br></div>');
+            i++;
+        });
+        $("#x1").click(function(){
+            $( "q1" ).removeClass();
+
+        });
+    });
+</script>
+</html>
