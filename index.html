@@ -11,10 +11,24 @@
             <label><input type="checkbox" class="box_qstn" value=gender><span> Gender </span></label><br>
             <label><input type="checkbox" class="box_qstn" value=size><span> Shirt/T-Shirt Size </span></label><br>
             <label><input type="checkbox" class="box_qstn" value=food><span> Food Preference </span></label>
-        </div>        
-        <div class="apd"></div>
+        </div>
+
         <button id="btn">Add Question</button>
 
+        <div class="q0">
+            <label for="qstn_type">Question Type:</label>               
+                <select id="qstn_type" name="qstn_type">
+                    <option>--Select--</option>
+                    <option value="text">Text Box</option>
+                    <option value="check">Check Box</option>
+                    <option value="radio">Radio Button</option>
+                </select>
+                <div class="add"></div>
+                <button href="javascript:void(0);" class="a" id="a0">Add</button>
+                <button href="javascript:void(0);" class="x" id="x0">Cancel</button>
+            <br>
+        </div>
+        <div class="apd"></div>
 </body>
 <script>
     var i=1;
@@ -30,6 +44,36 @@
             e.preventDefault();
             $(this).parent('div').remove(); //Remove field html
             i--; //Decrement field counter
+        });
+        $(".add").on('click', '.x', function(e){
+            e.preventDefault();
+            $(this).parent('div').remove(); //Remove first html
+            i--; //Decrement field counter
+        });
+        $(".add").on('click', '.p', function(e){
+            e.preventDefault();
+            var $cl = $(this).parent('div').clone(); //Remove first html
+            $(".add").append($cl);
+        });
+        $(".q0").on('click', '.qstn_type', function(e){
+            $(".add").append('Added'); //Append html
+        });
+        $(".q0").on('click', '.a', function(e){
+            e.preventDefault();
+            var val= $('#qstn_type').find(":selected").val();
+            var name= $('#qstn_type').find(":selected").text();
+            $(".add").append('<div><label><input type="checkbox" class="box_qstn" value=' + val + '><span> ' + name + '</span></label><button href="javascript:void(0);" class="x" id="x0">-</button><br></div>');
+        });
+        $("#qstn_type").change(function(){
+            var val= $('#qstn_type').find(":selected").val();
+            $(".add").empty();
+            if (val == "text"){
+                $(".add").append('<div><input type="text" placeholder="Enter Question"></div>');
+            } else if (val == "check") {
+                $(".add").append('<div><input type="text" placeholder="Enter Question"></div><div><input type="checkbox"><input type="text" placeholder="Option"><button href="javascript:void(0);" class="p">+</button></div>');
+            } else if (val == "radio") {
+                $(".add").append('<div><input type="text" placeholder="Enter Question"></div><div><input type="radio" name="opt"><input type="text" placeholder="Option"><button href="javascript:void(0);" class="p">+</button></div>')
+            }
         });
     });
 
