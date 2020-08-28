@@ -17,24 +17,21 @@
     <div class="apd"></div>
 </body>
 <script>
-    var i=1;
 
     $(document).ready(function(){
         $("#btn").click(function(){
             $(".apd").append('<div class="q"><label for="qstn_type">Question Type:</label><select id="qstn_type" name="qstn_type"><option>--Select--</option><option value="text">Text Box</option><option value="check">Check Box</option><option value="radio">Radio Button</option></select><div class="add"></div><button href="javascript:void(0);" class="a">Add</button><button href="javascript:void(0);" class="x">Cancel</button><br></div>');
-            i++;
         });
-        $(document).on('click', '.p', function(e){//Add new option
+        $(document).on('click', '.p', function(e){ //Add new option
             e.preventDefault();
             var $cl = $(this).parent('div').clone(); 
             $(".add").append($cl);
         });
-        $(document).on('click', '.x', function(e){//Remove div
+        $(document).on('click', '.x', function(e){ //Remove div
             e.preventDefault();
             $(this).parent('div').remove(); 
-            i--; 
         });
-        $(document).on('click', '.a', function(e){//Add to questions
+        $(document).on('click', '.a', function(e){ //Add to questions
             e.preventDefault();
             var type= $('#qstn_type').find(":selected").val();
             var val= $('#ques').val();
