@@ -34,7 +34,9 @@
                 ar.push("ch"+i);
                 i++;
             }else if (type == "radio"){
-                $(".add").append('<div><input type="radio" name="opt"><input type="text" placeholder="Option"><button href="javascript:void(0);" class="p">+</button><button href="javascript:void(0);" class="ropt">-</button></div>');
+                $(".add").append('<div><input type="radio" name="opt"><input type="text" class="rd" id="rd'+ i +'" placeholder="Option"><button href="javascript:void(0);" class="p">+</button><button href="javascript:void(0);" class="ropt">-</button></div>');
+                ar.push("rd"+i);
+                i++;
             }
         });
         $(document).on('click', '.x', function(e){ //Remove div
@@ -43,7 +45,7 @@
         });
         $(document).on('click', '.ropt', function(e){ //Remove option
             e.preventDefault();
-            var divId= $(this).parent().find('.ch').attr("id");
+            var divId= $(this).parent().find('.ch,.rd').attr("id");
             ar.splice( $.inArray(divId, ar), 1 );
             $(this).parent('div').remove();
         });
@@ -70,11 +72,13 @@
             if (val == "text"){
                 $(".add").append('<div><input type="text" id="ques" placeholder="Enter Question"></div>');
             } else if (val == "check") {
-                $(".add").append('<div><input type="text" id="ques" placeholder="Enter Question"></div><div><input type="checkbox"><input type="text" id="ch'+ i +'" placeholder="Option"><button href="javascript:void(0);" class="p">+</button><button href="javascript:void(0);" class="ropt">-</button></div>');
+                $(".add").append('<div><input type="text" id="ques" placeholder="Enter Question"></div><div><input type="checkbox"><input type="text" class="ch" id="ch'+ i +'" placeholder="Option"><button href="javascript:void(0);" class="p">+</button><button href="javascript:void(0);" class="ropt">-</button></div>');
                 i++;
                 ar=["ch1"];
             } else if (val == "radio") {
-                $(".add").append('<div><input type="text" id="ques" placeholder="Enter Question"></div><div><input type="radio" name="opt"><input type="text" placeholder="Option"><button href="javascript:void(0);" class="p">+</button><button href="javascript:void(0);" class="ropt">-</button></div>')
+                $(".add").append('<div><input type="text" id="ques" placeholder="Enter Question"></div><div><input type="radio" name="opt"><input type="text" class="rd" id="rd'+ i +'" placeholder="Option"><button href="javascript:void(0);" class="p">+</button><button href="javascript:void(0);" class="ropt">-</button></div>')
+                i++;
+                ar=["rd1"];
             }
         });
         
