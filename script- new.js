@@ -471,7 +471,9 @@
                   name: name,
                   price: price,
                   qty: qty,
-                  seat: []
+                  seat: [],
+                  info_user: []
+
                };
 
                //update localStorage
@@ -515,7 +517,9 @@
                   name: name,
                   price: price,
                   qty: qty,
-                  seat: []
+                  seat: [],
+                  info_user: []
+
                };
 
                var check_item = CART.check_item(id);
@@ -540,9 +544,390 @@
 
                CART.add_store();
             },
+            update_fullname: function( id, position, full_name ) {
+               CART.contents = CART.contents.map(function(item) {
+
+                  if (item.id == id) {
+                     let arr_info_user = item.info_user;
+                     if( arr_info_user[position] && arr_info_user[position].fullname ) {
+                        arr_info_user[position].fullname = full_name;
+
+                     } else {
+
+                        var email = '';
+                        var phone = '' ;
+                        var address = '' ;
+                        var gender = '' ;
+                        var size = '' ;
+                        var food = '' ;
+
+                        if( arr_info_user[position] && arr_info_user[position].food ) {
+                           food = arr_info_user[position].food
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].size ) {
+                           size = arr_info_user[position].size
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].gender ) {
+                           gender = arr_info_user[position].gender
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].email ) {
+                           email = arr_info_user[position].email
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].phone ) {
+                           phone = arr_info_user[position].phone
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].address ) {
+                           address = arr_info_user[position].address
+                        }
+
+                        arr_info_user[position] = {'fullname':full_name, 'email':email, 'phone':phone, 'address':address, 'gender':gender, 'size':size, 'food':food};
+                     }
+
+                     
+                     item.info_user = arr_info_user;
+
+                  }
+
+                  return item;
+               });
+               CART.add_store();
+            },
+
+            update_email: function( id, position, email ) {
+               CART.contents = CART.contents.map(function(item) {
+
+                  if (item.id == id) {
+                     let arr_info_user = item.info_user;
+                     if( arr_info_user[position] && arr_info_user[position].email ) {
+                        arr_info_user[position].email = email;
+
+                     } else {
+
+                        var fullname = '';
+                        var phone = '' ;
+                        var address = '' ;
+                        var gender = '' ;
+                        var size = '' ;
+                        var food = '' ;
+
+                        if( arr_info_user[position] && arr_info_user[position].food ) {
+                           food = arr_info_user[position].food
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].size ) {
+                           size = arr_info_user[position].size
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].gender ) {
+                           gender = arr_info_user[position].gender
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].fullname ) {
+                           fullname = arr_info_user[position].fullname
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].phone ) {
+                           phone = arr_info_user[position].phone
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].address ) {
+                           address = arr_info_user[position].address
+                        }
+
+                        arr_info_user[position] = {'fullname':fullname, 'email':email, 'phone':phone, 'address':address, 'gender':gender, 'size':size, 'food':food};
+                     }
+
+                     
+                     item.info_user = arr_info_user;
+
+                  }
+
+                  return item;
+               });
+               CART.add_store();
+            },
+
+            update_phone: function( id, position, phone ) {
+               CART.contents = CART.contents.map(function(item) {
+
+                  if (item.id == id) {
+                     let arr_info_user = item.info_user;
+                     if( arr_info_user[position] && arr_info_user[position].phone ) {
+                        arr_info_user[position].phone = phone;
+
+                     } else {
+
+                        var fullname = '';
+                        var email = '' ;
+                        var address = '' ;
+                        var gender = '' ;
+                        var size = '' ;
+                        var food = '' ;
+
+                        if( arr_info_user[position] && arr_info_user[position].food ) {
+                           food = arr_info_user[position].food
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].size ) {
+                           size = arr_info_user[position].size
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].gender ) {
+                           gender = arr_info_user[position].gender
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].fullname ) {
+                           fullname = arr_info_user[position].fullname
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].email ) {
+                           email = arr_info_user[position].email
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].address ) {
+                           address = arr_info_user[position].address
+                        }
+
+                        arr_info_user[position] = {'fullname':fullname, 'email':email, 'phone':phone, 'address':address, 'gender':gender, 'size':size, 'food':food};
+                     }
+
+                     
+                     item.info_user = arr_info_user;
+
+                  }
+
+                  return item;
+               });
+               CART.add_store();
+            },
+
+
+            update_address: function( id, position, address ) {
+               CART.contents = CART.contents.map(function(item) {
+
+                  if (item.id == id) {
+                     let arr_info_user = item.info_user;
+                     if( arr_info_user[position] && arr_info_user[position].address ) {
+                        arr_info_user[position].address = address;
+
+                     } else {
+
+                        var fullname = '';
+                        var email = '' ;
+                        var phone = '' ;
+                        var gender = '' ;
+                        var size = '' ;
+                        var food = '' ;
+
+                        if( arr_info_user[position] && arr_info_user[position].food ) {
+                           food = arr_info_user[position].food
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].size ) {
+                           size = arr_info_user[position].size
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].gender ) {
+                           gender = arr_info_user[position].gender
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].fullname ) {
+                           fullname = arr_info_user[position].fullname
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].email ) {
+                           email = arr_info_user[position].email
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].phone ) {
+                           phone = arr_info_user[position].phone
+                        }
+
+                        arr_info_user[position] = {'fullname':fullname, 'email':email, 'phone':phone, 'address':address, 'gender':gender, 'size':size, 'food':food};
+                     }
+
+                     
+                     item.info_user = arr_info_user;
+
+                  }
+
+                  return item;
+               });
+               CART.add_store();
+            },
+
+//#################################################################################################
+            update_gender: function( id, position, gender ) {
+               CART.contents = CART.contents.map(function(item) {
+
+                  if (item.id == id) {
+                     let arr_info_user = item.info_user;
+                     if( arr_info_user[position] && arr_info_user[position].gender ) {
+                        arr_info_user[position].gender = gender;
+
+                     } else {
+
+                        var fullname = '';
+                        var email = '' ;
+                        var phone = '' ;
+                        var address = '' ;
+                        var size = '' ;
+                        var food = '' ;
+
+                        if( arr_info_user[position] && arr_info_user[position].food ) {
+                           food = arr_info_user[position].food
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].size ) {
+                           size = arr_info_user[position].size
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].address ) {
+                           address = arr_info_user[position].address
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].fullname ) {
+                           fullname = arr_info_user[position].fullname
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].email ) {
+                           email = arr_info_user[position].email
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].phone ) {
+                           phone = arr_info_user[position].phone
+                        }
+
+                        arr_info_user[position] = {'fullname':fullname, 'email':email, 'phone':phone, 'address':address, 'gender':gender, 'size':size, 'food':food};
+                     }
+
+                     
+                     item.info_user = arr_info_user;
+
+                  }
+
+                  return item;
+               });
+               CART.add_store();
+            },
+
+            update_size: function( id, position, size ) {
+               CART.contents = CART.contents.map(function(item) {
+
+                  if (item.id == id) {
+                     let arr_info_user = item.info_user;
+                     if( arr_info_user[position] && arr_info_user[position].size ) {
+                        arr_info_user[position].size = size;
+
+                     } else {
+
+                        var fullname = '';
+                        var email = '' ;
+                        var phone = '' ;
+                        var address = '' ;
+                        var gender = '' ;
+                        var food = '' ;
+
+                        if( arr_info_user[position] && arr_info_user[position].food ) {
+                           food = arr_info_user[position].food
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].gender ) {
+                           gender = arr_info_user[position].gender
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].address ) {
+                           address = arr_info_user[position].address
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].fullname ) {
+                           fullname = arr_info_user[position].fullname
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].email ) {
+                           email = arr_info_user[position].email
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].phone ) {
+                           phone = arr_info_user[position].phone
+                        }
+
+                        arr_info_user[position] = {'fullname':fullname, 'email':email, 'phone':phone, 'address':address, 'gender':gender, 'size':size, 'food':food};
+                     }
+
+                     
+                     item.info_user = arr_info_user;
+
+                  }
+
+                  return item;
+               });
+               CART.add_store();
+            },
+
+            update_food: function( id, position, food ) {
+               CART.contents = CART.contents.map(function(item) {
+
+                  if (item.id == id) {
+                     let arr_info_user = item.info_user;
+                     if( arr_info_user[position] && arr_info_user[position].food ) {
+                        arr_info_user[position].food = food;
+
+                     } else {
+
+                        var fullname = '';
+                        var email = '' ;
+                        var phone = '' ;
+                        var address = '' ;
+                        var gender = '' ;
+                        var size = '' ;
+
+                        if( arr_info_user[position] && arr_info_user[position].size ) {
+                           size = arr_info_user[position].size
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].gender ) {
+                           gender = arr_info_user[position].gender
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].address ) {
+                           address = arr_info_user[position].address
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].fullname ) {
+                           fullname = arr_info_user[position].fullname
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].email ) {
+                           email = arr_info_user[position].email
+                        }
+
+                        if( arr_info_user[position] && arr_info_user[position].phone ) {
+                           phone = arr_info_user[position].phone
+                        }
+
+                        arr_info_user[position] = {'fullname':fullname, 'email':email, 'phone':phone, 'address':address, 'gender':gender, 'size':size, 'food':food};
+                     }
+
+                     
+                     item.info_user = arr_info_user;
+
+                  }
+
+                  return item;
+               });
+               CART.add_store();
+            },
+
+//#####################################################################################################
 
             update_seat: function(id, position, seat) {
-
+               
                CART.contents = CART.contents.map(function(item) {
                   if (item.id === id) {
                      let arr_seat = item.seat;
@@ -624,6 +1009,11 @@
                //empty select in wp-select
                $(".cart_detail .cart-content .cart-ticket-info .item-ticket-type .wp-select-seat ").empty();
 
+               $(".cart_detail .cart-content .cart-ticket-info .wrap-info-user ").empty();
+
+               $(".cart_detail .cart-content .cart-ticket-info .wrap-qstns ").empty();
+
+
                var enable_tax = $(".cart_detail .cart-content .cart-ticket-info").attr("data-enable-tax");
                var data_percent_tax = $(".cart_detail .cart-content .cart-ticket-info").attr("data-percent-tax");
                //set background button when sold out all
@@ -639,6 +1029,20 @@
                }
 
                if (!jQuery.isEmptyObject(contents)) {
+                  
+                  var flag_total_user = false;
+                  var total_item_user = 0;
+                  contents.forEach(function(item) {
+                     total_item_user += item.qty;
+                  });
+
+                  if( total_item_user >= 1 ) {
+                     flag_total_user = true;
+                  }
+
+                  // console.log('total_item_user: ' + total_item_user);
+
+
                   contents.forEach(function(item) {
                      if (item['discound_code']) {
                         return;
@@ -715,11 +1119,80 @@
                               html_select += html_option;
                               html_select += "</select></div>";
                               $(".cart_detail .cart-content .cart-ticket-info .item-ticket-type.item-" + item.id + " .wp-select-seat").append(html_select);
+
                            }
                         }
                      } else {
                         CART.delete_seat(item.id);
                      }
+
+                     var info_user = item.info_user;
+
+                     // var html_info_user = '';
+                     // if( qty_item == 1 ) {
+                     //    html_info_user = '<div class="item-info-user"><div class="ova-field-user ova-fullname"><input type="text" placeholder="Full Name"></div><div class="ova-field-user ova-email"><input type="email" placeholder="Email"></div><div class="ova-field-user ova-phone"><input type="text" placeholder="Phone"></div><div class="ova-field-user ova-address"><input type="text" placeholder="Address"></div></div></div>';
+                     // }
+                     if( flag_total_user ) {
+                        // html_info_user = '<div class="item-info-user"><div class="ova-field-user ova-fullname"><input type="text" placeholder="Full Name"></div><div class="ova-field-user ova-email"><input type="email" placeholder="Email"></div><div class="ova-field-user ova-phone"><input type="text" placeholder="Phone"></div><div class="ova-field-user ova-address"><input type="text" placeholder="Address"></div></div></div>';
+
+                        for (var i = 0; i < qty_item; i++) {
+
+                           var html_info_user = '';
+                           var html_test = '';
+
+                           var fullname = '';
+                           var email = '';
+                           var phone = '';
+                           var address = '';
+                           var j = i + 1;
+                           var q1 = document.getElementById("q1").value;
+                           var q2 = document.getElementById("q2").value;
+                           var q3 = document.getElementById("q3").value;
+
+                           if( q1 == 'true' ) { 
+                              html_test += '<div class="qstn-gender num-' + i + '"><strong>Gender : </strong><label class ="radio"><input class="gndr male" data-position="' + i + '" data-id_ticket="' + item.id + '" name="sex-'+ i + '-' + item.id + '" type="radio" value="male"><span> Male </span></label><label class ="radio"><input class="gndr female" data-position="' + i + '" data-id_ticket="' + item.id + '" name="sex-'+ i + '-' + item.id + '" type="radio" value="female"><span> Female </span></label></div>'; 
+                           }
+                           if( q2 == 'true' ) { 
+                              html_test += '<div class="qstn-size num-' + i + '"><strong>Shirt/T-Shirt Size : </strong><label class ="radio"><input class="size small" data-position="' + i + '" data-id_ticket="' + item.id + '" name="size-'+ i + '-' + item.id + '" type="radio" value="small"><span> Small </span></label><label class ="radio"><input class="size medium" data-position="' + i + '" data-id_ticket="' + item.id + '" name="size-'+ i + '-' + item.id + '" type="radio" value="medium"><span> Medium </span></label><label class ="radio"><input class="size large" data-position="' + i + '" data-id_ticket="' + item.id + '" name="size-'+ i + '-' + item.id + '" type="radio" value="large"><span> Large <span></label></div>'; 
+                           }
+                           if( q3 == 'true' ) { 
+                              html_test += '<div class="qstn-food num-' + i + '"><strong>Food Preference : </strong><label class ="radio"><input class="food nveg" data-position="' + i + '" data-id_ticket="' + item.id + '" name="food-'+ i + '-' + item.id + '" type="radio" value="nveg"><span> Non-Veg. </span></label><label class ="radio"><input class="food veg" data-position="' + i + '" data-id_ticket="' + item.id + '" name="food-'+ i + '-' + item.id + '" type="radio" value="veg"><span> Veg. </span></label></div>';  
+                           }
+
+                           if( info_user[i] && info_user[i].fullname ) {
+                              fullname = info_user[i].fullname;
+                           }
+
+                           if( info_user[i] && info_user[i].email ) {
+                              email = info_user[i].email;
+                           }
+
+                           if( info_user[i] && info_user[i].phone ) {
+                              phone = info_user[i].phone;
+                           }
+
+                           if( info_user[i] && info_user[i].address ) {
+                              address = info_user[i].address;
+                           }
+
+//                           html_info_user += '<h6>ATTENDEE ' + j + '</h6><div class="item-info-user num-' + i + '"><div class="ova-field-user ova-fullname"><input data-position="' + i + '" data-id_ticket="' + item.id + '" type="text" value="' + fullname + '" placeholder="Full Name"></div><div class="ova-field-user ova-email"><input data-position="' + i + '" data-id_ticket="' + item.id + '" value="' + email + '" type="email" placeholder="Email"></div><div  class="ova-field-user ova-phone"><input data-position="' + i + '" data-id_ticket="' + item.id + '" type="text" value="' + phone + '" placeholder="Phone"></div><div class="ova-field-user ova-address"><input data-position="' + i + '" data-id_ticket="' + item.id + '" type="text" value="' + address + '" placeholder="Address"></div></div>';
+                           html_info_user += '<div class="qstn-block"><h6 style="margin-top:10px;">ATTENDEE ' + j + '</h6><div class="item-info-user num-' + i + '"><div class="ova-field-user ova-fullname"><input data-position="' + i + '" data-id_ticket="' + item.id + '" type="text" value="' + fullname + '" placeholder="Full Name"></div><div class="ova-field-user ova-email"><input data-position="' + i + '" data-id_ticket="' + item.id + '" value="' + email + '" type="email" placeholder="Email"></div><div  class="ova-field-user ova-phone"><input data-position="' + i + '" data-id_ticket="' + item.id + '" type="text" value="' + phone + '" placeholder="Phone"></div></div>';
+
+                           html_info_user += html_test;
+                           $(".cart_detail .cart-content .cart-ticket-info .wrap-info-user.item-" + item.id).append(html_info_user);
+                           $(".cart_detail .cart-content .cart-ticket-info .wrap-info-user.item-" + item.id).css({"color":"#4f4f4f"});
+                           
+                           $(".cart_detail .cart-content .cart-ticket-info .wrap-info-user .qstn-block").css({
+                              "margin": "3px",
+                              "border-radius": "15px",
+                              "border": "2px solid #73AD21",
+                              "padding": "10px",
+                            });
+                        }
+
+                        
+                     }
+
 
                      $(".cart_detail .cart-content .cart-ticket-info .item-ticket-type.item-" + item.id + " .wp-select-seat select").select2({
                         width: '100%'
@@ -1062,6 +1535,72 @@
                }
             }
          });
+
+         $(".wrap-info-user").on('focusout', '.ova-fullname input', function() {
+            
+            let full_name = $(this).val();
+            let position = $(this).data('position');
+            let id_ticket = $(this).data('id_ticket');
+
+            CART.update_fullname(id_ticket, position, full_name);
+            
+         });
+
+         $(".wrap-info-user").on('focusout', '.ova-email input', function() {
+
+            let email = $(this).val();
+            let position = $(this).data('position');
+            let id_ticket = $(this).data('id_ticket');
+
+            CART.update_email(id_ticket, position, email);
+            
+         });
+
+         $(".wrap-info-user").on('focusout', '.ova-phone input', function() {
+
+            let phone = $(this).val();
+            let position = $(this).data('position');
+            let id_ticket = $(this).data('id_ticket');
+
+            CART.update_phone(id_ticket, position, phone);
+            
+         });
+
+         $(".wrap-info-user").on('focusout', '.ova-address input', function() {
+
+            let address = $(this).val();
+            let position = $(this).data('position');
+            let id_ticket = $(this).data('id_ticket');
+
+            CART.update_address(id_ticket, position, address);
+         });
+//######################################################################################################
+         $(".wrap-info-user").on('click', '.qstn-gender input', function() {
+            let gender = $(this).val();
+            let position = $(this).data('position');
+            let id_ticket = $(this).data('id_ticket');
+
+            CART.update_gender(id_ticket, position, gender);
+         });
+            
+        $(".wrap-info-user").on('click', '.qstn-size input', function() {
+
+           let size = $(this).val();
+           let position = $(this).data('position');
+           let id_ticket = $(this).data('id_ticket');
+
+           CART.update_size(id_ticket, position, size);
+        });            
+        
+        $(".wrap-info-user").on('click', '.qstn-food input', function() {
+
+           let food = $(this).val();
+           let position = $(this).data('position');
+           let id_ticket = $(this).data('id_ticket');
+
+           CART.update_food(id_ticket, position, food);
+        });
+//####################################################################################################
       },
 
       cart_price_display: function(price) {
@@ -1296,8 +1835,52 @@
             //check seat 
             var cart_check = cart;
             var flag_check_seat = '';
+            var flag_check_infor_user = true;
+
+            var list_id_ticket_error_infor = [];
+
+            var flag_total_user = false;
+            var total_item_user = 0;
+            cart_check.forEach(function(item) {
+               total_item_user += item.qty;
+            });
+
+            if( total_item_user >= 1 ) {
+               flag_total_user = true;
+            }
 
             cart_check = cart_check.map(function(item) {
+
+               let qty = item.qty;
+               let info_user = item.info_user;
+
+               // console.log('qty: ' + qty);
+               // console.log('info_user: ' + info_user);
+
+
+
+               if( flag_total_user ){
+                  for( var i = 0; i < item.qty; i++ ) {
+                     if( !(info_user[i] && info_user[i].fullname) ) {
+                        flag_check_infor_user = false;
+                        list_id_ticket_error_infor[i] = item.id;
+                     }
+                     if( !(info_user[i] && info_user[i].email) ) {
+                        flag_check_infor_user = false;
+                        list_id_ticket_error_infor[i] = item.id;
+                     }
+                     if( !(info_user[i] && info_user[i].phone) ) {
+                        flag_check_infor_user = false;
+                        list_id_ticket_error_infor[i] = item.id;
+                     }
+                     if( (info_user[i] && info_user[i].address) ) { //hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+                        flag_check_infor_user = false;
+                        list_id_ticket_error_infor[i] = item.id;
+                     }
+                  }
+               }
+
+                console.log('list_id_ticket_error_infor: ' + list_id_ticket_error_infor);
                if (typeof(item.seat) != 'undefined') {
                   let seat = item.seat;
 
@@ -1344,7 +1927,19 @@
                });
                return false;
             }
+            $('.ova-wrap-info .error-empty-cart').css('display', 'none');
+            $('.ova-wrap-info .error-empty-cart .error-empty-info').css('display', 'none');
 
+
+            if(list_id_ticket_error_infor) {
+               list_id_ticket_error_infor.forEach(function(id){
+                  $('.ova-wrap-info.item-'+id+' .error-empty-cart').css('display', 'block');
+                  $('.ova-wrap-info.item-'+id+' .error-empty-cart .error-empty-info').css('display', 'inline-block');
+               });
+               if( ! flag_check_infor_user ) {
+                  return false;
+               }
+            }
             let data_price_total = $(".cart_detail .cart-sidebar .cart-info .total-cart-info").attr("data-price");
             data_price_total = parseFloat(data_price_total);
             var error_qty = true;
@@ -2606,6 +3201,17 @@
                ticket.push(arr_event);
             });
 
+            /* Question*/
+            var question = [];
+            that.parents('.vendor_edit_event').find('.box_qstn').each(function() {
+               var arr_qstn = {
+                  'qstn_name' : $(this).attr('name'),
+                  'check' : $(this).is(':checked'),
+               };
+               question.push(arr_qstn);
+            });
+
+            /* Calendar */
             var calendar = [];
             that.parents('.vendor_edit_event').find('.item_calendar').each(function() {
                var arr_calendar = {
@@ -2736,6 +3342,8 @@
                      calendar_end_date: calendar_end_date,
                      calendar: calendar,
                      disable_date: disable_date,
+
+                     question: question,
 
                      coupon: coupon,
                      api_key: api_key,
@@ -2897,6 +3505,12 @@
             var check_start_date = false;
             var check_end_date = false;
             var check_date_create = false;
+            var check_att_name = false;
+            var check_att_email = false;
+            var check_att_mobile = false;
+            var check_att_gndr = false;
+            var check_att_size = false;
+            var check_att_food = false;
 
             var list_ckf_check = {};
 
@@ -2950,6 +3564,25 @@
                check_date_create = li.children("input[name='date_create']").val();
             }
 
+            //Hereeeeeeeeeeeeeee
+            if (li.children("input[name='att-name']").is(':checked')) {
+               check_att_name = li.children("input[name='att-name']").val();
+            }
+            if (li.children("input[name='att-mobile']").is(':checked')) {
+               check_att_mobile = li.children("input[name='att-mobile']").val();
+            }
+            if (li.children("input[name='att-email']").is(':checked')) {
+               check_att_email = li.children("input[name='att-email']").val();
+            }
+            if (li.children("input[name='att-gndr']").is(':checked')) {
+               check_att_gndr = li.children("input[name='att-gndr']").val();
+            }
+            if (li.children("input[name='att-size']").is(':checked')) {
+               check_att_size = li.children("input[name='att-size']").val();
+            }
+            if (li.children("input[name='att-food']").is(':checked')) {
+               check_att_food = li.children("input[name='att-food']").val();
+            }
 
             $.post(ajax_object.ajax_url, {
                action: 'export_csv_ticket',
@@ -2966,6 +3599,12 @@
                   check_end_date: check_end_date,
                   check_date_create: check_date_create,
                   list_ckf_check: list_ckf_check,
+                  check_att_name: check_att_name,
+                  check_att_email: check_att_email,
+                  check_att_mobile: check_att_mobile,
+                  check_att_gndr: check_att_gndr,
+                  check_att_size: check_att_size,
+                  check_att_food: check_att_food
                },
             }, function(response) {
                var data = response;
