@@ -58,7 +58,7 @@
             qstn_html += '<div><strong>'+val+'</strong>';
             ar.forEach(element => {
                 z = $('#'+ element).val();
-                $(".new").append('['+z+']');
+                qstn_html += '['+z+']';
             });
             qstn_html += '<button href="javascript:void(0);" class="x" id="x0">-</button><br></div>';
             type='';
@@ -68,7 +68,7 @@
             $(".new").append(qstn_html);
             $(this).parent('div').empty(); //Remove quesion block after adding question
         });
-        $(document).on('change', '#qstn_type', function(e) { //Enter question and type
+        $(document).on('change', '#qstn_type', function(e) { //Choose question type
             var val= $('#qstn_type').find(":selected").val();
             $(".add").empty();
             if (val == "text"){
