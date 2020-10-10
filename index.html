@@ -51,22 +51,24 @@
         });
         $(document).on('click', '.a', function(e){ //Add to questions
             e.preventDefault();
+            var qstn_html='';
             var type= $('#qstn_type').find(":selected").val();
             var val= $('#ques').val();
             var z='';
-            $(".new").append('<strong>'+val+'</strong>');
+            qstn_html += '<div><strong>'+val+'</strong>';
             ar.forEach(element => {
                 z = $('#'+ element).val();
                 $(".new").append('['+z+']');
             });
-            $(".new").append('<button href="javascript:void(0);" class="x" id="x0">-</button><br></div>');
+            qstn_html += '<button href="javascript:void(0);" class="x" id="x0">-</button><br></div>';
             type='';
             val='';
             z='';
             ar=[];
-            $(this).parent('div').remove(); //Remove div
+            $(".new").append(qstn_html);
+            $(this).parent('div').empty(); //Remove quesion block after adding question
         });
-        $(document).on('change', '#qstn_type', function(e) { //Enter question
+        $(document).on('change', '#qstn_type', function(e) { //Enter question and type
             var val= $('#qstn_type').find(":selected").val();
             $(".add").empty();
             if (val == "text"){
