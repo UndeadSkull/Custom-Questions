@@ -3199,7 +3199,7 @@
                ticket.push(arr_event);
             });
 
-            /* Question*/
+            /* Questions preset*/
             var question = [];
             that.parents('.vendor_edit_event').find('.box_qstn').each(function() {
                var arr_qstn = {
@@ -3208,6 +3208,37 @@
                };
                question.push(arr_qstn);
             });
+
+            //Custom questions
+            var custom_question = [];
+            that.parents('.vendor_edit_event').find('.cstm_qstn').each(function(){
+               var typeCheck = $(this).data('type');
+               var optCount = $(this).data('opt_count');
+               var i=1;
+               var arr_cstm = {
+                  'qstn_type' : typeCheck,
+                  'question' : $(this).data('question'),
+                  'opt_count' : optCount,
+               };
+               if(typeCheck !== 'text'){
+                  while ( i <= optCount ){
+                     $.extend(arr_cstm ,{
+                        [i] : $(this).data('opt'+i),
+                     });
+                     i++;
+                  }
+               }
+               custom_question.push(arr_cstm);
+            });
+            var cstm = that.parents('.vendor_edit_event').find('.cstm_qstn');
+            if(!cstm.length){
+               var arr_cstm = {
+                  'qstn_type' : '',
+                  'question' : '',
+                  'opt_count' : 0,
+               };
+               custom_question.push(arr_cstm);
+            }
 
             /* Calendar */
             var calendar = [];
@@ -3342,6 +3373,7 @@
                      disable_date: disable_date,
 
                      question: question,
+                     custom_question: custom_question,
 
                      coupon: coupon,
                      api_key: api_key,

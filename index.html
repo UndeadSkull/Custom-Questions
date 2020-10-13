@@ -61,22 +61,25 @@
             }else{
                 $("#ques").css("border","1px solid #ccc");
                 var qstn_html='';
+                var qstn_html_opt='';
                 var z='';
                 var k=[];
                 var l=0;
                 var type= $('#qstn_type').find(":selected").val();
                 var val= $('#ques').val();
-                qstn_html += '<div class="cstm_qstn" data-type="'+type+'" data-question="'+val+'"><strong>'+val+'</strong>';
                 ar.forEach(element => {
                     z = $('#'+ element).val();
-                    qstn_html += '['+z+']';
+                    qstn_html_opt += '['+z+']';
                     k.push(z);
                 });
-                qstn_html += '<button href="javascript:void(0);" class="x" id="x0">-</button><br></div>';
-                $(".new").append(qstn_html);
+
+                qstn_html += '<div class="cstm_qstn" data-type="'+type+'" data-question="'+val+'" ';
                 k.forEach(element => {
-                    $(".cstm_qstn").data( 'opt' + ++l, element );
-                });
+                    qstn_html += 'data-opt' + ++l + '="'+element+'" ';
+                })
+                qstn_html += 'data-opt_count ="'+l+'"><strong>'+val+'</strong>'+qstn_html_opt+'<button href="javascript:void(0);" class="x" id="x0">-</button><br></div>'
+                
+                $(".new").append(qstn_html);
                 $(".apd").empty(); //Remove quesion block after adding question
                 $("#btn").css("background-color","#90ba3e");
                 type='';
