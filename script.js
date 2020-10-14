@@ -1199,7 +1199,8 @@
                               
                               }
                               else if(typeCheck === 'checkbox' || typeCheck === 'radio'){
-                                          
+                                 var op = $(this).data('opt1').substring(0,2);
+                                 qu += op;
                                  while ( c <= optCount ){
                                     arr_opt[c] = $(this).data('opt'+c);
                                     cstm_html += ' <label class ="'+typeCheck+'"><input name="'+qu+'-'+i+'-'+item.id+'" type="'+typeCheck+'" value="'+arr_opt[c]+'"><span>'+ arr_opt[c] +'</span></label>';

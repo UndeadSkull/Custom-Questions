@@ -194,7 +194,7 @@ $percent_tax = ($enable_tax == 'yes') ? $percent_tax : 0;
 					<?php if ($custom_question) {
 						foreach($custom_question as $key => $value) {
 							if($value['question'] != '') {?>
-								<div class="cstm_qstn" data-type="<?php echo esc_attr($value['qstn_type'])?>" data-question="<?php echo esc_attr($value['question'])?>" data-opt_count="<?php echo esc_attr($value['opt_count'])?>" <?php $c=1; while($c <= $value['opt_count']){ echo esc_attr(' data-opt'.$c.'='.$value[$c]);$c++;}?> ></div>
+								<div class="cstm_qstn" data-type="<?php echo esc_attr($value['qstn_type'])?>" data-question="<?php echo esc_attr($value['question'])?>" data-opt_count="<?php echo esc_attr($value['opt_count'])?>" <?php $c=1; while($c <= $value['opt_count']){?> data-opt<?php echo esc_attr($c)?>="<?php echo esc_attr($value[$c])?>"<?php $c++;}?> ></div>
 							<?php } 
 						}
 					}?>
